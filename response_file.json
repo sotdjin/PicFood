@@ -1,0 +1,364 @@
+{
+  "responses": [
+    {
+      "labelAnnotations": [
+        {
+          "mid": "/m/05qdh",
+          "description": "painting",
+          "score": 0.95215273
+        },
+        {
+          "mid": "/m/01spzs",
+          "description": "still life",
+          "score": 0.92350876
+        },
+        {
+          "mid": "/m/06msq",
+          "description": "sculpture",
+          "score": 0.8436116
+        },
+        {
+          "mid": "/m/088fh",
+          "description": "yellow",
+          "score": 0.83718473
+        },
+        {
+          "mid": "/m/0jwzhtg",
+          "description": "carving",
+          "score": 0.5592463
+        },
+        {
+          "mid": "/m/027_ny3",
+          "description": "still life photography",
+          "score": 0.55555558
+        }
+      ]
+    },
+    {
+      "labelAnnotations": [
+        {
+          "mid": "/m/07b2m8",
+          "description": "music venue",
+          "score": 0.85525078
+        },
+        {
+          "mid": "/m/01d74z",
+          "description": "night",
+          "score": 0.81724894
+        },
+        {
+          "mid": "/m/01sg9l",
+          "description": "nightclub",
+          "score": 0.74992275
+        },
+        {
+          "mid": "/m/019sc6",
+          "description": "lighting",
+          "score": 0.65792048
+        },
+        {
+          "mid": "/m/04_5hy",
+          "description": "stage",
+          "score": 0.65624672
+        },
+        {
+          "mid": "/m/06l8d",
+          "description": "restaurant",
+          "score": 0.55813849
+        }
+      ]
+    },
+    {
+      "labelAnnotations": [
+        {
+          "mid": "/m/0krfg",
+          "description": "meal",
+          "score": 0.92415249
+        },
+        {
+          "mid": "/m/02q08p0",
+          "description": "dish",
+          "score": 0.79449469
+        },
+        {
+          "mid": "/m/02wbm",
+          "description": "food",
+          "score": 0.72235155
+        },
+        {
+          "mid": "/m/0hz4q",
+          "description": "breakfast",
+          "score": 0.61587036
+        },
+        {
+          "mid": "/m/06l8d",
+          "description": "restaurant",
+          "score": 0.5953688
+        },
+        {
+          "mid": "/m/0c_jw",
+          "description": "furniture",
+          "score": 0.55823982
+        },
+        {
+          "mid": "/m/02rfdq",
+          "description": "interior design",
+          "score": 0.53694218
+        },
+        {
+          "mid": "/m/0dw_m",
+          "description": "brunch",
+          "score": 0.50025815
+        }
+      ]
+    },
+    {
+      "labelAnnotations": [
+        {
+          "mid": "/m/01d74z",
+          "description": "night",
+          "score": 0.77817047
+        },
+        {
+          "mid": "/m/07b2m8",
+          "description": "music venue",
+          "score": 0.77651024
+        },
+        {
+          "mid": "/m/0krfg",
+          "description": "meal",
+          "score": 0.7683081
+        },
+        {
+          "mid": "/m/019sc6",
+          "description": "lighting",
+          "score": 0.75087726
+        },
+        {
+          "mid": "/m/06l8d",
+          "description": "restaurant",
+          "score": 0.59299839
+        },
+        {
+          "mid": "/m/01jfsr",
+          "description": "lantern",
+          "score": 0.56498146
+        }
+      ]
+    },
+    {
+      "labelAnnotations": [
+        {
+          "mid": "/m/02q08p0",
+          "description": "dish",
+          "score": 0.94875544
+        },
+        {
+          "mid": "/m/02wbm",
+          "description": "food",
+          "score": 0.94341636
+        },
+        {
+          "mid": "/m/0krfg",
+          "description": "meal",
+          "score": 0.8124575
+        },
+        {
+          "mid": "/m/0cxn2",
+          "description": "ice cream",
+          "score": 0.61595374
+        },
+        {
+          "mid": "/m/04scj",
+          "description": "meat",
+          "score": 0.54411411
+        },
+        {
+          "mid": "/m/0pqdc",
+          "description": "hors d oeuvre",
+          "score": 0.54184365
+        }
+      ]
+    },
+    {
+      "labelAnnotations": [
+        {
+          "mid": "/m/02q08p0",
+          "description": "dish",
+          "score": 0.94411415
+        },
+        {
+          "mid": "/m/0krfg",
+          "description": "meal",
+          "score": 0.93691331
+        },
+        {
+          "mid": "/m/02wbm",
+          "description": "food",
+          "score": 0.87375909
+        },
+        {
+          "mid": "/m/0jfd5",
+          "description": "lunch",
+          "score": 0.74219561
+        },
+        {
+          "mid": "/m/0jffp",
+          "description": "dinner",
+          "score": 0.65247542
+        },
+        {
+          "mid": "/m/01xxtm",
+          "description": "frozen food",
+          "score": 0.62756431
+        },
+        {
+          "mid": "/m/015bv3",
+          "description": "document",
+          "score": 0.61074013
+        },
+        {
+          "mid": "/m/03ly4k",
+          "description": "middle eastern food",
+          "score": 0.58055562
+        },
+        {
+          "mid": "/m/0pqdc",
+          "description": "hors d oeuvre",
+          "score": 0.54184365
+        },
+        {
+          "mid": "/m/01r1z5",
+          "description": "asian food",
+          "score": 0.5392819
+        }
+      ]
+    },
+    {
+      "labelAnnotations": [
+        {
+          "mid": "/m/036qh8",
+          "description": "produce",
+          "score": 0.96522963
+        },
+        {
+          "mid": "/m/02q08p0",
+          "description": "dish",
+          "score": 0.94877744
+        },
+        {
+          "mid": "/m/02wbm",
+          "description": "food",
+          "score": 0.94382912
+        },
+        {
+          "mid": "/m/02y17j",
+          "description": "pho",
+          "score": 0.9
+        },
+        {
+          "mid": "/m/05s2s",
+          "description": "plant",
+          "score": 0.88088965
+        },
+        {
+          "mid": "/m/0grw1",
+          "description": "salad",
+          "score": 0.8785423
+        },
+        {
+          "mid": "/m/0f4s2w",
+          "description": "vegetable",
+          "score": 0.85014582
+        },
+        {
+          "mid": "/m/0krfg",
+          "description": "meal",
+          "score": 0.7315616
+        },
+        {
+          "mid": "/m/0jfd5",
+          "description": "lunch",
+          "score": 0.6580559
+        },
+        {
+          "mid": "/m/03gq1",
+          "description": "herb",
+          "score": 0.54438716
+        }
+      ]
+    },
+    {
+      "labelAnnotations": [
+        {
+          "mid": "/m/0krfg",
+          "description": "meal",
+          "score": 0.6281907
+        },
+        {
+          "mid": "/m/015bv3",
+          "description": "document",
+          "score": 0.61074013
+        }
+      ]
+    },
+    {
+      "labelAnnotations": [
+        {
+          "mid": "/m/02rfdq",
+          "description": "interior design",
+          "score": 0.53982073
+        }
+      ]
+    },
+    {
+      "labelAnnotations": [
+        {
+          "mid": "/m/02hnl",
+          "description": "drums",
+          "score": 0.86812526
+        },
+        {
+          "mid": "/m/011_dp",
+          "description": "skin head percussion instrument",
+          "score": 0.82889277
+        },
+        {
+          "mid": "/m/0krfg",
+          "description": "meal",
+          "score": 0.81879061
+        },
+        {
+          "mid": "/m/026t6",
+          "description": "drum",
+          "score": 0.80636448
+        },
+        {
+          "mid": "/m/04bcr3",
+          "description": "table",
+          "score": 0.76162833
+        },
+        {
+          "mid": "/m/0jffp",
+          "description": "dinner",
+          "score": 0.66612566
+        },
+        {
+          "mid": "/m/05677z",
+          "description": "tablecloth",
+          "score": 0.63536131
+        },
+        {
+          "mid": "/m/0c_jw",
+          "description": "furniture",
+          "score": 0.57924461
+        },
+        {
+          "mid": "/m/01qbl",
+          "description": "cymbal",
+          "score": 0.54363477
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+C://2016_yelp_dataset_challenge_photos//--8QkhJFGgQmQkAzy_OX1A.jpg 4:10
+C://2016_yelp_dataset_challenge_photos//-0M4IrDkg7xZThMig8s4VA.jpg 4:10
+C://2016_yelp_dataset_challenge_photos//-0W5VI7tcNLW8XGFIVN0Dw.jpg 4:10
+C://2016_yelp_dataset_challenge_photos//-20aEWoCBso1n0cy_z-dvQ.jpg 4:10
+C://2016_yelp_dataset_challenge_photos//-2W6W0qs5-y9W8WB-fQabw.jpg 4:10
+C://2016_yelp_dataset_challenge_photos//-2bx_HvcMQaHrEUFE18i_g.jpg 4:10
+C://2016_yelp_dataset_challenge_photos//-2gsf6D-IJB6BRHrYA4MDQ.jpg 4:10
+C://2016_yelp_dataset_challenge_photos//-3wr2-Ty2Aa_ajIrdHEvQw.jpg 4:10
+C://2016_yelp_dataset_challenge_photos//-7-K5z-1Zq5ZMs0gMwvUVw.jpg 4:10
+C://2016_yelp_dataset_challenge_photos//-77KPti_DATwTzuuGarcKA.jpg 4:10

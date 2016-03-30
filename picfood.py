@@ -8,7 +8,7 @@ def main():
     print len(data)
     restuarant_data=[]
     for x in range(len(data)):
-        if "Restaurants" in data[x]["categories"] and "NV" in data[x]["state"]:
+        if "Restaurants" in data[x]["categories"]:
             restuarant_data.append(data[x])
     print len(restuarant_data)
     
@@ -24,6 +24,30 @@ def main():
         if (item["business_id"])in restuarant_data_indexed:
             kept_photos.append(item)
     print len(kept_photos)
+    print "how many photos have labels and or captions"
+    count =0 
+    test_photos=[]
+    for item in kept_photos:
+        if item["caption"]=="" and (item["label"]== "food" or item["label"]=="drink" or item["label"]=="none"):
+            count=count+1
+            test_photos.append(item["photo_id"])
+    print count
+    file=open("photo_id_to_restuarant_NV.json",'w')
+    file.write(json.dumps(kept_photos))
+    file.close()
+    label_word={}
+    for item in kept_photos:
+        if item["label"] not in label_word:
+            label_word[item["label"]]=1
+    label_file=open("unique labels.txt",'w')
+    label_file.write(json.dumps(label_word))
+    label_file.close()
+    
+    photo_id_file=open("photo_id.txt",'w')
+    for x in range(10):
+        uri="C://2016_yelp_dataset_challenge_photos//" + test_photos[x] +".jpg 4:10"
+        photo_id_file.write(uri+ '\n')
+    photo_id_file.close()
     
 if __name__ == '__main__':
   main()

@@ -1,0 +1,1 @@
+{"none": 1, "food": 1, "menu": 1, "inside": 1, "drink": 1, "outside": 1}
