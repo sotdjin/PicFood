@@ -1,6 +1,6 @@
 # PicFood
 Dependencies:
-Yelp Dataset Challenge
+Yelp Dataset Challenge</br>
 Google Vision API
 
 Run PicFood.py
