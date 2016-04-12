@@ -1,2 +1,6 @@
 # PicFood
-Repo for PicFood application
+Dependencies:
+Yelp Dataset Challenge
+Google Vision API
+
+Run PicFood.py
