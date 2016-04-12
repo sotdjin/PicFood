@@ -2,6 +2,9 @@ import json
 import sys
 
 
+
+
+
 def main():
     data = []
     with open('yelp_academic_dataset_business.json') as f:

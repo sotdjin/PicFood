@@ -3,13 +3,14 @@ import sys
 import re
 import math
 import json
+import FP_user
 
 def create_dic(list_pictures,query_txt): #takes in a list of file names
     #print list_pictures
     all_dict=[]
     dict_idf={}
     words=[]
-    num_pic=1000
+    num_pic=1000 #only searches through first 1000
     iterator=0
    
     for x in range(0, 1000): #goes through each file and takes all the words
@@ -88,22 +89,68 @@ def create_dic(list_pictures,query_txt): #takes in a list of file names
         string=list_pictures[i]["photo_id"]
         if length_docs[i]==0:
             length_docs[i]=1000000000000
-        cos_docs[string]=(float(dot_product)/(query_mag*length_docs[i]))
-        
-    cos_docs_tuples= cos_docs.items()
-    sorted_cos_docs=sorted(cos_docs_tuples,key=lambda tuple: tuple[1],reverse=True) #sorts the cosine in revers order
-    print "TOP 5 results for query : ", query
-    for i in range (5):
-        if i<len(sorted_cos_docs):
-            print i+1,'.', sorted_cos_docs[i][0], " cos=",sorted_cos_docs[i][1]
-    # return dict
-    #usage 
-def main():
 
-    data = []
+        cos_docs[string]=(float(dot_product)/(query_mag*length_docs[i]))
+    return cos_docs
+
+    # return dict
+    #usage
+
+
+def pic_food_algorithm(user, query):
+    user.print_food_ratings()
     with open('photo_id_to_restuarant_NV.json') as f:
         data = json.load(f)
-    create_dic(data,"thai tea")
-    
+    all_cos = []
+    food_ratings = user.user_food_ratings()
+    print food_ratings
+    for food in food_ratings:
+        all_cos.append(create_dic(data, food))
+    orig_cos = create_dic(data, query)
+    total_cos = {}
+    for i in range(1000):
+        total_cos[data[i]["photo_id"]] = orig_cos[data[i]["photo_id"]]/len(food_ratings)
+        for cos in all_cos:
+            total_cos[data[i]["photo_id"]] += cos[data[i]["photo_id"]]
+
+    cos_docs_tuples = total_cos.items()
+    sorted_cos_docs = sorted(cos_docs_tuples, key=lambda tuple: tuple[1],
+                             reverse=True)  # sorts the cosine in revers order
+    print "TOP 5 results for query : ", query
+    for i in range(5):
+        if i < len(sorted_cos_docs):
+            print i + 1, '.', sorted_cos_docs[i][0], " cos=", sorted_cos_docs[i][1]
+    thousand_photos = open('test_photos.txt', 'w')
+    for i in range(1000):
+        thousand_photos.write(data[i]["photo_id"]+"\n")
+    thousand_photos.close()
+
+
+def pf_user():
+    # print "Enter Username or 0 for new user: "
+    username = raw_input("username:")
+    password = raw_input("password:")
+    user = FP_user.PFUser(username, password)
+    return user
+
+
+def user_rating(user):
+    food_ratings = {}
+    print "Please enter a type of food you like: "
+    answer = raw_input()
+    print "Please enter a rating for " + answer + " from 1 to 10: "
+    rating = int(input())
+    food_ratings[answer] = rating
+    for food in food_ratings:
+        user.add_ratings(food, food_ratings[food])
+
+
+def main():
+    user = pf_user()
+    user_rating(user)
+    user.print_food_ratings()
+    pic_food_algorithm(user, "pizza")
+
+
 if __name__ == '__main__':
-  main()
+    main()
