@@ -11,7 +11,7 @@ def main():
     print "new user"
     username = raw_input("username:")
     password = raw_input("password:")
-    user = FP_user.PFUser(username,password)
+    user = FP_user.PFUser(username, password)
     for food in foods:
         print "Do you like ", food, " ?"
         answer = raw_input("yes or no")
