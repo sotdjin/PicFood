@@ -15,6 +15,13 @@ class User(db.Model):
     username = Column(Text, unique=True)
     password = Column(Text, unique=False)
 
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+
+    def __repr__(self):
+        return '<User %r>' % self.username
+
 db.create_all()
 
 api_manager = APIManager(app, flask_sqlalchemy_db=db)
@@ -36,10 +43,11 @@ def signup():
 def login():
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-            error = 'Invalid Credentials. Please try again.'
-        else:
+        if db.session.query(User).filter(User.username == request.form['username'],
+                                         User.password == request.form['password']):
             return redirect(url_for('index'))
+        else:
+            error = 'Invalid Credentials. Please try again.'
     return render_template('login.html', error=error)
 
 app.debug=True
