@@ -44,7 +44,7 @@ def login():
     error = None
     if request.method == 'POST':
         if db.session.query(User).filter(User.username == request.form['username'],
-                                         User.password == request.form['password']):
+                                         User.password == request.form['password']).scalar() is not None:
             session['username'] = request.form['username']
             session['password'] = request.form['password']
             return redirect(url_for('picfood'))
