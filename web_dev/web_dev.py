@@ -4,7 +4,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_restless import APIManager
 from sqlalchemy import Column,Integer, Text
 
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///picfood.db'
 db = SQLAlchemy(app)
