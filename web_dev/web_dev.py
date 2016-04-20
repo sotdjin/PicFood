@@ -1,5 +1,5 @@
 # all the imports
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_restless import APIManager
 from sqlalchemy import Column,Integer, Text
@@ -45,12 +45,28 @@ def login():
     if request.method == 'POST':
         if db.session.query(User).filter(User.username == request.form['username'],
                                          User.password == request.form['password']):
-            return redirect(url_for('index'))
+            session['username'] = request.form['username']
+            session['password'] = request.form['password']
+            return redirect(url_for('picfood'))
         else:
             error = 'Invalid Credentials. Please try again.'
     return render_template('login.html', error=error)
 
-app.debug=True
 
+@app.route('/logout')
+def logout():
+    # remove the username from the session if it's there
+    session.pop('username', None)
+    return redirect(url_for('index'))
+
+
+@app.route('/picfood', methods=['GET', 'POST'])
+def picfood():
+    if session.get('username'):
+        return render_template('picfood.html')
+    else:
+        return redirect(url_for('index'))
+app.debug = True
+app.secret_key = 'n81\x01\x18\xe3s\x86\x9d:\x01\xade\x00\x0f\x11/\xe37\x0c9O\xb3\xb0'
 if __name__ == '__main__':
     app.run()
