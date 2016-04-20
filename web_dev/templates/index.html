@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>PicFood</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+        <script src="../static/bower_components/jquery/src/jquery.js"></script>
+        <script src="../static/js/app.js"></script>
     </head>
     <body>
-        Your app goes here!
-        <script src="bower_components/jquery/src/jquery.js"></script>
-        <script src="js/app.js"></script>
-        <a href="login">login </a>
+        <div id="toppart">
+            <div class="jumbotron"> PicFood </div>
+        </div>
+        <div class="slogan"> Let Your Eyes be Bigger than Your Stomach! </div>
+        <div id="buttonholder">
+            <a id="login" href="login">
+                <button type="button" class="btn btn-primary btn-lg"> Login </button>
+            </a>
+            <a id="signup" href="signup">
+                <button type="button" class="btn btn-primary btn-lg"> Signup </button>
+            </a>
+        </div>
     </body>
 </html>
