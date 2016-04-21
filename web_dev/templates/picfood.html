@@ -5,25 +5,43 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/picfood.css">
         <script src="../static/bower_components/jquery/src/jquery.js"></script>
-        <script src="../static/js/app.js"></script>
+        <script src="../static/js/picfood.js"></script>
+        <title>PicFood</title>
     </head>
     <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="picfood.html">PicFood</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav nav-pills navbar-right">
-                    <li><a href="">My Account</a></li>
-                    <li><a href="/logout">Log out</a></li>
-                </ul>
+        <div id="topnav" class="container-fluid">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="navbar-brand" style="color: darkred;">PicFood</div>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav nav-pills navbar-right">
+                            <li><a href="">My Account</a></li>
+                            <li><a href="/logout">Log out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id="bottompart" class="container-fluid">
+            <div class="row">
+                <div class="col-md-7 col-centered">
+                    <h1 style="color: darkred;">PicFood Query Search</h1>
+                    <div id="querysearchinput">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="form-control input-lg" placeholder="Search" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-info btn-lg" type="button">
+                                    <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
-        <div class="slogan"> Let Your Eyes be Bigger than Your Stomach! </div>
-
     </body>
 </html>
