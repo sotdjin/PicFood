@@ -3,6 +3,7 @@
     border: solid 1px #E4E4E4;
     border-radius: 6px;
     background-color: #fff;
+    margin-bottom: 30px;
 }
 #querysearchinput input{
     border: 0;
@@ -37,12 +38,15 @@
     margin: 0 auto;
     float: none;
 }
-.img {
+#imagewrapper {
+    text-align: center;
+}
+img {
     position: relative;
-    float: left;
-    width:  100px;
-    height: 100px;
+    width:  150px;
+    height: 150px;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 5px 5px 5px 5px;
 }

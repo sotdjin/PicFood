@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" type="text/css" href="../static/css/picfood.css">
-        <script src="../static/bower_components/jquery/src/jquery.js"></script>
+        <script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="../static/js/picfood.js"></script>
         <title>PicFood</title>
     </head>
@@ -32,9 +32,9 @@
                     <h1 style="color: darkred;">PicFood Query Search</h1>
                     <div id="querysearchinput">
                         <div class="input-group col-md-12">
-                            <input type="text" class="form-control input-lg" placeholder="Search" />
+                            <input id="searchbox" type="text" class="form-control input-lg" placeholder="Search" value="" />
                             <span class="input-group-btn">
-                                <button class="btn btn-info btn-lg" type="button">
+                                <button id="searchbutton" class="btn btn-info btn-lg" type="button">
                                     <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
                                 </button>
                             </span>
@@ -42,6 +42,7 @@
                     </div>
                 </div>
             </div>
+            <div id="imagewrapper" class="container-fluid"></div>
         </div>
     </body>
 </html>
