@@ -43,9 +43,19 @@
     margin: auto;
 }
 
-#loginbutton, #signupbutton{
+#loginbutton, #signupbutton, #submitbutton{
     font-family: Georgia, serif;
     background-color: darkred;
+    border-color: #330000;
+}
+
+#myaccountpanel_head {
+    font-family: Georgia, serif;
+    border-color: #330000;
+    background-color: darkred;
+}
+#myaccountpanel {
+    font-family: Georgia, serif;
     border-color: #330000;
 }
 #loginbutton:hover, #signupbutton:hover {
