@@ -3,7 +3,7 @@
  */
 
 $(document).ready(function() {
-    background_image();
+    //background_image();
 });
 
 function background_image() {
