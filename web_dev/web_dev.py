@@ -2,7 +2,7 @@
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_restless import APIManager
-from sqlalchemy import Column,Integer, Text
+from sqlalchemy import Column, Integer, Text
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///picfood.db'
@@ -24,7 +24,7 @@ class User(db.Model):
 db.create_all()
 
 api_manager = APIManager(app, flask_sqlalchemy_db=db)
-api_manager.create_api(User, methods=['GET', 'Post', 'DELETE', 'PUT'])
+api_manager.create_api(User, methods=['GET', 'POST', 'DELETE', 'PUT'])
 
 
 @app.route('/')
@@ -32,9 +32,21 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/signup')
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    return render_template('signup.html')
+    error = None
+    if request.method == 'POST':
+        _username = request.form['username']
+        _password = request.form['password']
+        if db.session.query(User).filter(User.username == _username).scalar() is None:
+            new_user = User(_username, _password)
+            db.session.add(new_user)
+            db.session.commit()
+            return redirect("http://localhost:5000/login")
+        else:
+            error = "That Username is Already Taken!"
+            return render_template('signup.html', error=error)
+    return render_template('signup.html', error=error)
 
 
 # route for handling the login page logic

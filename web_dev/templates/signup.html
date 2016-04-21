@@ -1,50 +1,40 @@
-<!DOCTYPE html>
- <html lang="en">
-
- <head>
-     <meta charset="utf-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <meta name="description" content="">
-     <meta name="author" content="">
-    <!--  <link rel="icon" href="../../favicon.ico">
-
-     <title>Signin Template for Bootstrap </title>
-
-     <!-- Bootstrap core CSS -->
-     <script src="../static/bower_components/jquery/src/jquery.js"> </script>
-     <meta charset="utf-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <link href="../static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
-     <link rel="stylesheet" type="text/css" href="../static/css/signup.css">
-     <script src="../static/bower_components/jquery/src/jquery.js"></script>
-     <script src="../static/js/app.js"></script>
- </head>
-
- <body>
-
-    <div id="toppart">
-            <div class="jumbotron"> New Account Registration!  </div>
-    </div>
-
-    <div class="desc"> Please Enter Your Desired Username and Password </div>
-
-     <div class="container">
-
-         <form class="form-signin" action="/signUp" method="post" role="form">
-
-             <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
-             <input type="text" name="password" class="form-control" placeholder="Password" required>
-
-             <div id="buttonholder">
-                <button type="button" class="btn btn-primary btn-lg"> Let's Eat! </button>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PicFood - signup page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container" align="center">
+      <h1>Please Enter Your Desired Username and Password</h1>
+      <br>
+      <form class = "form-horizontal" action="" method="post">
+        <div class="form-group">
+            <label for ="inputEmail3" class="col-sm-4 control-label">Username</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" placeholder="Username" name="username" value="{{
+                request.form.username }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for ="inputPassword3" class="col-sm-4 control-label">Password</label>
+            <div class="col-sm-5">
+                <input type="password" class="form-control" placeholder="Password" name="password" value="{{
+                request.form.password }}">
+            </div>
+        </div>
+          <div class="form-group">
+             <div class="center-block">
+                <input class="btn btn-primary btn-lg" type="submit" value="Let's Eat!">
              </div>
-
-         </form>
-
-     </div>
-
- </body>
-
- </html>
+        </div>
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
+  </body>
+</html>
