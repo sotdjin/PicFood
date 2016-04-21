@@ -4,7 +4,21 @@
     text-align: center;
     color: darkred;
     font-size: 110px;
+    font-family: Georgia, serif;
     box-shadow: 0px 1px 1.5px #888888;
+}
+#spacer {
+    padding-bottom: 50px;
+    background-color: darkred;
+    z-index: 0;
+    position: relative;
+    /* border: solid red; */
+    box-shadow: 0px 1px 1.5px #888888;
+}
+#homebutton {
+    padding-left: 10px;
+    font-size: 30px;
+    color: white;
 }
 .slogan {
     position: relative;
@@ -12,13 +26,32 @@
     text-align: center;
     color: black;
     font-size: 40px;
+    font-family: Georgia, serif;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 #buttonholder {
     padding-top: 50px;
     position: relative;
     text-align: center;
 }
-#login #signup {
+#login, #signup {
     position: relative;
     margin: auto;
+}
+
+#loginbutton, #signupbutton{
+    font-family: Georgia, serif;
+    background-color: darkred;
+    border-color: #330000;
+}
+#loginbutton:hover, #signupbutton:hover {
+    background-color: #660000;
+}
+img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    bottom: 0;
 }
