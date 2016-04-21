@@ -24,6 +24,7 @@ class User(db.Model):
 
 db.create_all()
 
+
 api_manager = APIManager(app, flask_sqlalchemy_db=db)
 api_manager.create_api(User, methods=['GET', 'Post', 'DELETE', 'PUT'])
 
@@ -42,9 +43,11 @@ def signup():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
+    print User.query.all()
+    print 'jello'
     if request.method == 'POST':
-        if db.session.query(User).filter(User.username == request.form['username'],
-                                         User.password == request.form['password']).scalar() is not None:
+        if User.query.filter(User.username == request.form['username'],
+                                         User.password == request.form['password']).count():
             session['username'] = request.form['username']
             session['password'] = request.form['password']
             return redirect(url_for('picfood'))
