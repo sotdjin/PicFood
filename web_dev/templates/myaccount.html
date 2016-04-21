@@ -24,6 +24,23 @@
         </div>
     </nav>
         <div class="slogan"> Let Your Eyes be Bigger than Your Stomach! </div>
-
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h3>MY ACCOUNT</h3></div>
+            <div class="panel-body">
+            <p>
+               <h4>Hi {{ session['username'] }}</h4>
+            </p>
+            </div>
+            <br>
+            <div class="container-fluid">
+                <p>Foods I like...</p>
+            <input type="text" class="form-control" placeholder="Input Food">
+                <br>
+            <input class="btn btn-primary" type="submit" value="Submit">
+            </div>
+            <br>
+        </div>
+    </div>
     </body>
 </html>
