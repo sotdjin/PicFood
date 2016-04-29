@@ -13,10 +13,12 @@ class User(db.Model):
     id = Column(Integer, primary_key=True)
     username = Column(Text, unique=True)
     password = Column(Text, unique=False)
+    user_preference = Column(Text, unique=False)
 
-    def __init__(self, username, password):
+    def __init__(self, username, password, user_preference):
         self.username = username
         self.password = password
+        self.user_preference = user_preference
 
     def __repr__(self):
         return '<User %r>' % self.username
@@ -40,10 +42,12 @@ def signup():
         _username = request.form['username']
         _password = request.form['password']
         if db.session.query(User).filter(User.username == _username).scalar() is None:
-            new_user = User(_username, _password)
+            new_user = User(_username, _password, " ")
             db.session.add(new_user)
             db.session.commit()
-            return redirect("http://localhost:5000/login")
+            session['username'] = _username
+            session['password'] = _password
+            return redirect(url_for('myaccount'))
         else:
             error = "That Username is Already Taken!"
             return render_template('signup.html', error=error)
@@ -80,9 +84,17 @@ def picfood():
     else:
         return redirect(url_for('index'))
 
-@app.route('/myaccount')
+
+@app.route('/myaccount', methods=['GET', 'POST'])
 def myaccount():
     if session.get('username'):
+        print User.query.all()
+        if request.method == 'POST':
+            preferences = session['user_preference'] + " " + request.form['user_preference']
+            me = User(session['username'], session['password'], preferences)
+            session.query(User).filter(User.username == session['username']).delete()
+            db.session.add(me)
+            db.session.commit()
         return render_template('myaccount.html')
     else:
         return redirect(url_for('index'))

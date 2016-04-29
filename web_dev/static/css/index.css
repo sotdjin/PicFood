@@ -58,7 +58,7 @@
     font-family: Georgia, serif;
     border-color: #330000;
 }
-#loginbutton:hover, #signupbutton:hover {
+#loginbutton:hover, #signupbutton:hover, #preferencebutton:hover {
     background-color: #660000;
 }
 #indexbody {
