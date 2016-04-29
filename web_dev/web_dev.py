@@ -109,7 +109,10 @@ def myaccount():
             user = User.query.filter(User.username == session['username']).first()
             request_string = request.form['user_preference']
             if request_string not in str(user.user_preference):
-                user.user_preference = str(user.user_preference) + ";" + request_string
+                if user.user_preference == " " or user.user_preference is None:
+                    user.user_preference = request_string
+                else:
+                    user.user_preference = str(user.user_preference) + "; " + request_string
                 user.user_preference = re.sub('None', '', str(user.user_preference))
             db.session.commit()
             return redirect(url_for('myaccount'))

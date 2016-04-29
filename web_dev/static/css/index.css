@@ -43,7 +43,7 @@
     margin: auto;
 }
 
-#loginbutton, #signupbutton, #submitbutton, #preferencebutton{
+#loginbutton, #signupbutton, #submitbutton, #Picfoodbutton{
     font-family: Georgia, serif;
     background-color: darkred;
     border-color: #330000;
@@ -58,7 +58,7 @@
     font-family: Georgia, serif;
     border-color: #330000;
 }
-#loginbutton:hover, #signupbutton:hover, #preferencebutton:hover {
+#loginbutton:hover, #signupbutton:hover, #Picfoodbutton:hover {
     background-color: #660000;
 }
 #indexbody {
