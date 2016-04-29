@@ -35,19 +35,22 @@
             </p>
             </div>
             <br>
-            <div class="container-fluid">
-            <div class="form-group">
-                <label for ="inputUserPreference" class="col-sm-3 control-label">Tell us your favorite foods!</label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" placeholder="Input Food" name = "user_preference" value="{{
-                    request.form.user_preference }}">
-            </div>
-            </div>
-            <br>
-            <input class="btn btn-primary btn-lg" type="submit" id = "preferencebutton" value="Update Preferences">
-            </div>
+            <form class = "form-horizontal" action="" method="post">
+                <div class="container-fluid">
+                <div class="form-group">
+                    <label for ="inputUserPreference" class="col-sm-3 control-label">Tell us your favorite foods!</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" placeholder="Input Food" name = "user_preference" value="{{
+                        request.form.user_preference }}">
+                </div>
+                </div>
+                <br>
+                <input class="btn btn-primary btn-lg" type="submit" id = "preferencebutton" value="Update Preferences">
+                </div>
+            </form>
             <br>
         </div>
     </div>
+
     </body>
 </html>

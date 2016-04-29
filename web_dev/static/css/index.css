@@ -43,7 +43,7 @@
     margin: auto;
 }
 
-#loginbutton, #signupbutton, #submitbutton{
+#loginbutton, #signupbutton, #submitbutton, #preferencebutton{
     font-family: Georgia, serif;
     background-color: darkred;
     border-color: #330000;
