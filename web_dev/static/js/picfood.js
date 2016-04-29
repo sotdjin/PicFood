@@ -24,6 +24,7 @@ function query_images() {
         },
             function(data) {
                 image=data;
+                console.log(image);
             }
         );
         while (counter != 4) {

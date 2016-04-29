@@ -144,7 +144,8 @@ def pic_food_algorithm(user, query):
     for i in range(40):
         if i < len(sorted_cos_docs):
             query_result = sorted_cos_docs[i][0]+'.jpg'
-            results.extend(query_result)
+            results.append(query_result)
+    print results
     return results
 
 
