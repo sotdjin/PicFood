@@ -7,6 +7,7 @@
         <link href="../static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" type="text/css" href="../static/css/picfood.css">
         <script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../static/bower_components/bootstrap/dist/js/bootstrap.js "></script>
         <script src="../static/js/picfood.js"></script>
         <title>PicFood</title>
     </head>
@@ -43,6 +44,17 @@
                 </div>
             </div>
             <div id="imagewrapper" class="container-fluid"></div>
+        </div>
+        <div id="modal-pic" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div id="modal-pic-header" class="modal-header"><h1></h1></div>
+                    <div id="modal-pic-body" class="modal-body"></div>
+                    <div class="modal-footer">
+                        <button id="close-pic-modal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

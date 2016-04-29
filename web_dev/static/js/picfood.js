@@ -3,6 +3,9 @@
  */
 $(document).ready(function() {
     query_images();
+    $("#close-pic-modal").click(function(){
+        $("#modal-pic-body").children().remove();
+    });
 });
 function query_images() {
     var counter = 0;
@@ -18,7 +21,7 @@ function query_images() {
             for (var i = 0; i < 5; i++) {
                 var imageUrl = '../static/images/';
                 imageUrl = imageUrl + "fp" + image_counter.toString() + ".jpg";
-                $("#imagewrapper").append('<a id = "pic' + pic_counter + '"" onClick = "popup(this.id);"><img src=/' + imageUrl + ' /></a>')
+                $("#imagewrapper").append('<img id = "pic' + pic_counter + '" src=/' + imageUrl + ' onclick="display_modal(this.id)"/>')
                 image_counter += 1;
                 pic_counter += 1;
             }
@@ -28,8 +31,9 @@ function query_images() {
     });
 }
 
-function popup(clicked_id) {
-    //Insert Modal Code Here
+function display_modal(pic_id) {
+    $("#modal-pic").modal('show');
+    $("#modal-pic-header").children().text(pic_id);
+    $("#modal-pic-body").append('<p>BLAH BLAH BLAH BLAH BLAH</p>')
 }
-
 
