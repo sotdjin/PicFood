@@ -96,7 +96,8 @@ def algorithm():
     pref = request.args.get('preferences', 0, type=str)
     query_string = request.args.get('query', 0, type=str)
     preferences = pref.split(';')
-    results = query.query_pic_food(username, password, preferences, query_string)
+    results = {}
+    results['results'] = query.query_pic_food(username, password, preferences, query_string)
     return jsonify(results)
 
 
