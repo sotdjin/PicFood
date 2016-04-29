@@ -16,6 +16,20 @@ function query_images() {
         if (query != "") {
             $("#imagewrapper").append('<div class="row"><div class="col-md-12"><div class="text-center"><p>' + query + '</p></div></div></div>');
         }
+        var username=document.getElementById("username").value;
+        var password=document.getElementById("password").value;
+        var preferences=document.getElementById("pref").value;
+        $.getJSON('http://localhost:5000/' + 'algorithm',{
+            username: username,
+            password: password,
+            preferences: preferences,
+            query: query
+        },
+            function(data) {
+                image=data;
+                console.log(image);
+            }
+        );
         while (counter != 4) {
             $("#imagewrapper").append('<div class="row row-center">')
             for (var i = 0; i < 5; i++) {

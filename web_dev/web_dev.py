@@ -1,8 +1,10 @@
 # all the imports
-from flask import Flask, render_template, redirect, request, url_for, session
+from flask import Flask, render_template, redirect, request, url_for, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_restless import APIManager
 from sqlalchemy import Column, Integer, Text
+import re
+import query
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///picfood.db'
@@ -79,22 +81,42 @@ def logout():
 
 @app.route('/picfood', methods=['GET', 'POST'])
 def picfood():
+    user = User.query.filter(User.username == session['username']).first()
+    session['user_preference'] = str(user.user_preference)
     if session.get('username'):
         return render_template('picfood.html')
     else:
         return redirect(url_for('index'))
 
 
+@app.route('/algorithm')
+def algorithm():
+    username = request.args.get('username', 0, type=str)
+    password = request.args.get('password', 0, type=str)
+    pref = request.args.get('preferences', 0, type=str)
+    query_string = request.args.get('query', 0, type=str)
+    preferences = pref.split(';')
+    results = {}
+    results['results'] = query.query_pic_food(username, password, preferences, query_string)
+    return jsonify(results)
+
+
 @app.route('/myaccount', methods=['GET', 'POST'])
 def myaccount():
+    user = User.query.filter(User.username == session['username']).first()
+    session['user_preference'] = re.sub(';', ',', str(user.user_preference))
     if session.get('username'):
-        print User.query.all()
         if request.method == 'POST':
-            preferences = session['user_preference'] + " " + request.form['user_preference']
-            me = User(session['username'], session['password'], preferences)
-            session.query(User).filter(User.username == session['username']).delete()
-            db.session.add(me)
+            user = User.query.filter(User.username == session['username']).first()
+            request_string = request.form['user_preference']
+            if request_string not in str(user.user_preference):
+                if user.user_preference == " " or user.user_preference is None:
+                    user.user_preference = request_string
+                else:
+                    user.user_preference = str(user.user_preference) + "; " + request_string
+                user.user_preference = re.sub('None', '', str(user.user_preference))
             db.session.commit()
+            return redirect(url_for('myaccount'))
         return render_template('myaccount.html')
     else:
         return redirect(url_for('index'))
