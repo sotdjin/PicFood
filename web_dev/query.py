@@ -10,63 +10,15 @@ def create_dic(list_pictures,query_txt): # takes in a list of file names
     all_dict = []
     dict_idf = {}
     words = []
-    num_pic = 1000  # only searches through first 1000
+    num_pic = len(list_pictures)  # only searches through first 1000
     iterator = 0
 
-    s = ""
-    api_results = []
-    with open('static\\json\\test_photo_api_results.json') as f:
-        for line in f:
-            s += str(line)
-    api_results.append(json.loads(s))
+    with open('static\json\preprocessed_new_tfidf.json', 'r') as f:
+        new_dict_idf = json.load(f)
 
-    for x in range(0, 1000):  # goes through each file and takes all the words
-        words.append([])
-        c = list_pictures[x]
-        photoid = c['photo_id']
+    with open('static\json\preprocessed_tfidf.json', 'r') as f:
+        dict_tfidf = json.load(f)
 
-        caption = c["caption"]
-        if caption!=None:
-            caption = caption.lower()
-            words[iterator]=(re.split('[^a-zA-z]*',caption))
-
-        if photoid in api_results[0].keys():
-            caption_api=api_results[0][photoid]
-            words[iterator].extend(re.split('[^a-zA-z]*', caption_api))
-        iterator += 1
-
-    for i in range(num_pic):  # creates a dictionary and key= word, value=word count
-        dict = {}
-        for x in range(len(words[i])):  # creates a dictionary for words that are greater than or equal to 3
-            if len(words[i][x])>=3:
-                if words[i][x] in dict:
-                    dict[words[i][x]]+=1
-                else:
-                    dict[words[i][x]]=1
-                if words[i][x] not in dict_idf:
-                    dict_idf[words[i][x]]=0
-        all_dict.append(dict)
-    all_words = dict_idf.keys()
-    dict_idf.clear()
-    
-    for word in all_words:  # finds how many documents each word is in
-        numt = 0.0
-        for i in range(num_pic):
-            if word in all_dict[i]:
-                numt += 1
-        dict_idf[word] = numt
-    new_dict_idf = {}
-    
-    for key in dict_idf:  # calculate idf
-        value = (float(num_pic)/float(dict_idf[key]))
-        new_dict_idf[key] = math.log(value,10)
-    dict_tfidf = []
-    
-    for i in range(len(all_dict)):  # calculate tf-idf
-        new_dict = {}
-        for key in all_dict[i]:
-            new_dict[key]=1+(math.log(all_dict[i][key],10)*new_dict_idf[key])
-        dict_tfidf.append(new_dict)
     length_docs = []
     query = query_txt
     
@@ -129,7 +81,7 @@ def pic_food_algorithm(user, query):
         all_cos.append(create_dic(data, food))
     orig_cos = create_dic(data, query)
     total_cos = {}
-    for i in range(1000):
+    for i in range(len(data)):
         total_cos[data[i]["photo_id"]] = orig_cos[data[i]["photo_id"]]/len(food_ratings)
         for cos in all_cos:
             total_cos[data[i]["photo_id"]] += cos[data[i]["photo_id"]]

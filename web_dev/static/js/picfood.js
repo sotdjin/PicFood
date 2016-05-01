@@ -28,20 +28,21 @@ function query_images() {
         },
             function(data) {
                 image = data;
+                while (counter != 4) {
+                    $("#imagewrapper").append('<div class="row row-center">')
+                    for (var i = 0; i < 5; i++) {
+                        var imageUrl = '../static/images/yelp_photos/';
+                        imageUrl = imageUrl + image['results'][pic_counter];
+                        $("#imagewrapper").append('<img id = "pic' + pic_counter + '" src=/' + imageUrl + ' onclick="display_modal(this.id)"/>')
+                        image_counter += 1;
+                        pic_counter += 1;
+                    }
+                    $("#imagewrapper").append('</div>')
+                    counter += 1;
+                }
             }
         );
-        while (counter != 4) {
-            $("#imagewrapper").append('<div class="row row-center">')
-            for (var i = 0; i < 5; i++) {
-                var imageUrl = '../static/images/yelp_photos/';
-                imageUrl = imageUrl + image['results'][pic_counter];
-                $("#imagewrapper").append('<img id = "pic' + pic_counter + '" src=/' + imageUrl + ' onclick="display_modal(this.id)"/>')
-                image_counter += 1;
-                pic_counter += 1;
-            }
-            $("#imagewrapper").append('</div>')
-            counter += 1;
-        }
+
     });
 }
 
