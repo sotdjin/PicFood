@@ -82,9 +82,9 @@ def pic_food_algorithm(user, query):
     orig_cos = create_dic(data, query)
     total_cos = {}
     for i in range(len(data)):
-        total_cos[data[i]["photo_id"]] = orig_cos[data[i]["photo_id"]]/len(food_ratings)
+        total_cos[data[i]["photo_id"]] = orig_cos[data[i]["photo_id"]]
         for cos in all_cos:
-            total_cos[data[i]["photo_id"]] += cos[data[i]["photo_id"]]
+            total_cos[data[i]["photo_id"]] += cos[data[i]["photo_id"]]/(len(food_ratings) * 2)
 
     cos_docs_tuples = total_cos.items()
     sorted_cos_docs = sorted(cos_docs_tuples, key=lambda tuple: tuple[1],

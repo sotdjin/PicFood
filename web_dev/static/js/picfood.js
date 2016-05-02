@@ -28,12 +28,14 @@ function query_images() {
         },
             function(data) {
                 image = data;
+                console.log(image);
                 while (counter != 4) {
                     $("#imagewrapper").append('<div class="row row-center">')
                     for (var i = 0; i < 5; i++) {
                         var imageUrl = '../static/images/yelp_photos/';
-                        imageUrl = imageUrl + image['results'][pic_counter];
-                        $("#imagewrapper").append('<img id = "pic' + pic_counter + '" src=/' + imageUrl + ' onclick="display_modal(this.id)"/>')
+                        var image_id = image['results'][pic_counter];
+                        imageUrl = imageUrl + image_id;
+                        $("#imagewrapper").append('<img id = ' + image_id + ' src=/' + imageUrl + ' onclick="getBusinessID(this.id)"/>')
                         image_counter += 1;
                         pic_counter += 1;
                     }
@@ -46,9 +48,65 @@ function query_images() {
     });
 }
 
-function display_modal(pic_id) {
-    $("#modal-pic").modal('show');
-    $("#modal-pic-header").children().text(pic_id);
-    $("#modal-pic-body").append('<p>Business Name: PLACEHOLDER</p><br><p>Location: PLACEHOLDER</p><br><p>Hours: PLACEHOLDER</p>')
-}
+var business_id;
+var picture_id;
+var photo_list;
+var business_list;
+var finished_business;
+var finished_photo;
 
+function getBusinessID(pic_id) {
+    picture_id = pic_id.slice(0, -4);
+    finished_business = false;
+    finished_photo = false;
+    var business_json = "../static/json/nv_business_information.json";
+    var photo_to_business = "../static/json/photo_id_to_business.json";
+    $.getJSON(photo_to_business, photo_id_callback);
+    $.getJSON(business_json, business_id_callback);
+}
+function business_id_callback(data){
+    business_list = data;
+    finished_business = true;
+    if (finished_photo) {
+        display_modal();
+    }
+}
+function photo_id_callback(data) {
+    photo_list = data;
+    finished_photo = true;
+    if (finished_business) {
+        display_modal();
+    }
+}
+function display_modal() {
+    var business_id = photo_list[picture_id];
+    var business = business_list[business_id];
+    var business_name = business['name'];
+    var business_address = business['full_address'];
+    var business_alcohol = business['Alcohol'];
+    var business_delivery = business['Delivery'];
+    var business_takeout = business['Take-out'];
+    var business_wifi = business['Wi-Fi'];
+    var business_rating = business['stars'];
+    var business_reviewcount = business['review_count'];
+    var business_categories = business['categories'];
+    if (business_alcohol == null) {
+        business_alcohol = 'N/A';
+    }
+    if (business_delivery == null) {
+        business_delivery = 'N/A';
+    }
+    if (business_takeout == null) {
+        business_takeout = 'N/A';
+    }
+    if (business_wifi == null) {
+        business_wifi = 'N/A';
+    }
+    $("#modal-pic").modal('show');
+    $("#modal-pic-header").children().text(business_name);
+    $("#modal-pic-body").append('<p><b>Address: </b>' + business_address + '</p><p><b>Hours: </b>PLACEHOLDER</p>' +
+        '<p><b>Rating: </b>' + business_rating + '</p><p><b>Review Count: </b>' + business_reviewcount + '</p>' +
+        '<p><b>Alcohol: </b> ' + business_alcohol + ' </p><p><b>Delivery: </b>' + business_delivery + '</p>' +
+        '<p><b>Take-Out: </b> ' + business_takeout + ' </p><p><b>Wi-Fi: </b> ' + business_wifi + ' </p>' +
+        '<p><b>Categories: </b> ' + business_categories + ' </p>')
+}
