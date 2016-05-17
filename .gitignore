@@ -1,2 +1,1 @@
-web_dev\.idea
-web_dev\config_secret.json
+/web_dev/config_secret.json
